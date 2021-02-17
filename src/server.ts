@@ -4,14 +4,35 @@ import fs from "fs";
 const host = "localhost";
 const port = 8080;
 
+function getMime(url: string): string {
+  switch (url.split(".")[1]) {
+    case "html":
+      return "text/html";
+
+    case "js":
+      return "application/javascript";
+
+    case "css":
+      return "text/css";
+
+    case "ttf":
+      return "application/octet-stream";
+
+    default:
+      return "text/plain";
+  }
+}
+
 const requestListener: RequestListener = function (req, res) {
   console.log(`Request: ${req.url}`);
 
-  switch (req.url) {
+  const url = req.url.split("?")[0];
+
+  switch (url) {
     case "/":
       fs.readFile(`${__dirname}/index.html`, function (err, data) {
         if (err) {
-          res.writeHead(404);
+          res.writeHead(404, { "Content-type": getMime(url) });
           res.end(JSON.stringify(err));
           return;
         }
@@ -26,13 +47,13 @@ const requestListener: RequestListener = function (req, res) {
       break;
 
     default:
-      fs.readFile(__dirname + req.url, function (err, data) {
+      fs.readFile(__dirname + url, function (err, data) {
         if (err) {
           res.writeHead(404);
           res.end(JSON.stringify(err));
           return;
         }
-        res.writeHead(200);
+        res.writeHead(200, { "Content-type": getMime(url) });
         res.end(data);
       });
       break;

@@ -4,7 +4,9 @@
     "noImplicitAny": true,
     "module": "es6",
     "target": "es6",
-    "allowJs": false
+    "allowJs": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "files": [
     "src/index.ts"
