@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(/13a29228654d5c5ec9c4.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url(/4f39c5796e60c9d8e732.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url(/03523cf578d69fa92322.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+#app {
+  font-family: Roboto, Arial, Helvetica, sans-serif; }
+
