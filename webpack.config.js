@@ -1,65 +1,52 @@
 const path = require("path");
 const webpack = require("webpack");
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const NodemonPlugin = require("nodemon-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-/** @type {import('webpack').Configuration} */
-const commonConf = {
+const client = {
   mode: "development",
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
-};
-
-/** @type {import('webpack').Configuration} */
-const client = {
-  ...commonConf,
-
-  target: "web",
-
-  entry: ["./src/index.ts", "./src/scss/index.scss"],
-
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "stories.js",
     publicPath: "/",
   },
-
   plugins: [
     new webpack.ProgressPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ["**/*", "!server.js"],
+    }),
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "src/index.html",
     }),
     new MiniCssExtractPlugin({ filename: "stories.css" }),
   ],
-
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         loader: "ts-loader",
-        include: [path.resolve(__dirname, "src")],
         exclude: [/node_modules/],
       },
       {
         test: /.(sa|sc|c)ss$/,
-
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: "css-loader",
-
             options: {
               sourceMap: true,
             },
           },
           {
             loader: "sass-loader",
-
             options: {
               sourceMap: true,
             },
@@ -69,32 +56,38 @@ const client = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
+      },
+      {
+        test: /favicons.*\.(png|svg)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "favicon[hash][ext]",
+        },
       },
     ],
   },
 };
 
-/** @type {import('webpack').Configuration} */
 const server = {
-  ...commonConf,
-
+  mode: "development",
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
   target: "node",
-
   entry: ["./src/server.ts"],
-
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "server.js",
   },
-
   plugins: [new webpack.ProgressPlugin(), new NodemonPlugin()],
-
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         loader: "ts-loader",
-        include: [path.resolve(__dirname, "src")],
         exclude: [/node_modules/],
       },
     ],

@@ -24,9 +24,9 @@ function getMime(url: string): string {
 }
 
 const requestListener: RequestListener = function (req, res) {
-  console.log(`Request: ${req.url}`);
-
   const url = req.url.split("?")[0];
+  const query = req.url.split("?")[1];
+  console.log(`path: ${url}, query: ${query}`);
 
   switch (url) {
     case "/":
