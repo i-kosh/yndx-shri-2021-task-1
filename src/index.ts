@@ -1,4 +1,5 @@
 import "./scss/index.scss";
+import changeFavicon from "./favicons";
 import data, { availableAliases } from "./data";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
@@ -8,7 +9,7 @@ function renderTemplate(alias: string, data: Record<string, any>): string {
 
   console.dir(data);
 
-  return `<h1>${alias}</h1>`;
+  return `<h1 class="headline">${alias}</h1>`;
 }
 
 declare global {
@@ -27,6 +28,8 @@ if (window) {
     const mountPoint = document.querySelector("#app");
     const currentSlide =
       slideIndex <= 11 && slideIndex >= 1 ? data[slideIndex - 1] : data[0];
+
+    changeFavicon(theme === "dark" ? "dark" : "light");
 
     if (mountPoint) {
       mountPoint.classList.add(theme === "dark" ? "theme_dark" : "theme_light");
