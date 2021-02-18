@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/i-kosh/yndx-shri-2021-task-1#readme",
   "devDependencies": {
+    "@types/finalhandler": "^1.1.0",
+    "@types/serve-static": "^1.13.9",
     "@types/webpack-env": "^1.16.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -34,6 +36,8 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
-    "modern-normalize": "^1.0.0"
+    "finalhandler": "^1.1.2",
+    "modern-normalize": "^1.0.0",
+    "serve-static": "^1.14.1"
   }
 }
