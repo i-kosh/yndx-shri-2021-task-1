@@ -1,0 +1,30 @@
+:root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: inherit;
+}
+
+#app {
+  @extend .body;
+
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  background: var(--background);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: var(--color-body);
+}

@@ -1,5 +1,9 @@
+@import "/node_modules/modern-normalize/modern-normalize.css";
+
+@import "vars";
 @import "font";
 
-#app {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-}
+@import "root";
+
+@import "theme";
+@import "typography";

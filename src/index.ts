@@ -1,3 +1,4 @@
+import "./scss/index.scss";
 import data, { availableAliases } from "./data";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
