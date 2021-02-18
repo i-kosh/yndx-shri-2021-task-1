@@ -1,19 +1,4 @@
-.theme_light {
-  --color-headline: #{$black};
-
-  --color-subhead: #{$black};
-  --color-subhead-depressed: #{$grey};
-
-  --color-body: #{$black};
-  --color-body-depressed: #{$grey};
-
-  --color-caption: #{$black};
-  --color-caption-depressed: #{$grey};
-
-  --background: #ffffff;
-}
-
-.theme_dark {
+:root {
   --color-headline: #{$white};
 
   --color-subhead: #{$white};
@@ -30,4 +15,19 @@
     rgba(18, 12, 1, 0.9) 0%,
     #000000 100%
   );
+}
+
+.theme_light {
+  --color-headline: #{$black};
+
+  --color-subhead: #{$black};
+  --color-subhead-depressed: #{$grey};
+
+  --color-body: #{$black};
+  --color-body-depressed: #{$grey};
+
+  --color-caption: #{$black};
+  --color-caption-depressed: #{$grey};
+
+  --background: #ffffff;
 }
