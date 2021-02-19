@@ -67,6 +67,13 @@ const client = {
           filename: "favicon[hash][ext]",
         },
       },
+      {
+        test: /avatars.*\.jpg$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "img/[name][ext]",
+        },
+      },
     ],
   },
 };
