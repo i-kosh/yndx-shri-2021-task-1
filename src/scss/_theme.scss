@@ -1,14 +1,9 @@
 :root {
   --color-headline: #{$white};
-
   --color-subhead: #{$white};
-  --color-subhead-depressed: #{$grey-light};
-
   --color-body: #{$white};
-  --color-body-depressed: #{$grey-light};
-
   --color-caption: #{$white};
-  --color-caption-depressed: #{$grey-light};
+  --color-depressed: #{$grey-light};
 
   --background: radial-gradient(
     70.24% 70.24% at 49.87% 29.76%,
@@ -19,15 +14,10 @@
 
 .theme_light {
   --color-headline: #{$black};
-
   --color-subhead: #{$black};
-  --color-subhead-depressed: #{$grey};
-
   --color-body: #{$black};
-  --color-body-depressed: #{$grey};
-
   --color-caption: #{$black};
-  --color-caption-depressed: #{$grey};
+  --color-depressed: #{$grey};
 
-  --background: #ffffff;
+  --background: #080707;
 }
