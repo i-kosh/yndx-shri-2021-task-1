@@ -39,7 +39,7 @@ export default class BarClass extends CommonComponent {
 
     return `
     <div class="bar ${this.getClasses()}" style="--height: ${
-      this.cfg?.height || 0
+      this.cfg?.height || 100
     }%;">
       ${barAbowe}
       <div class="bar__content">
