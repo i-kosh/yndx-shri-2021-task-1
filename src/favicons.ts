@@ -52,7 +52,7 @@ export default function changeFavicon(theme?: "light" | "dark"): void {
     ],
   };
 
-  icons[theme].forEach((val) => {
+  icons[theme || "dark"].forEach((val) => {
     document.head.insertAdjacentHTML(
       "beforeend",
       `<link
