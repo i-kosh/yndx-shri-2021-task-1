@@ -10,6 +10,7 @@ interface IConfig {
   aboweSlotAlign?: "left" | "right";
   accent?: boolean;
   height?: number;
+  order?: number;
 }
 
 export default class BarClass extends CommonComponent {
@@ -37,10 +38,10 @@ export default class BarClass extends CommonComponent {
       ? `<div class="bar__under body">${this.cfg.underSlot}</div>`
       : "";
 
+    const styleHeightVar = `--height: ${this.cfg?.height || 100}%;`;
+
     return `
-    <div class="bar ${this.getClasses()}" style="--height: ${
-      this.cfg?.height || 100
-    }%;">
+    <div class="bar ${this.getClasses()}" style="${styleHeightVar}">
       ${barAbowe}
       <div class="bar__content">
         ${barTop}
