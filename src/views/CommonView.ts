@@ -1,3 +1,14 @@
 export default abstract class CommonView {
-  abstract template: string;
+  // Abstract
+  protected abstract render(): string;
+
+  // Real
+  private _template: string = "";
+
+  toString() {
+    if (this._template) return this._template;
+    this._template = this.render();
+
+    return this._template;
+  }
 }
