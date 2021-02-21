@@ -1,0 +1,16 @@
+@import "../../scss/vars";
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  @media (orientation: landscape) {
+    align-items: center;
+  }
+}
+
+.heading__sub {
+  margin-top: 8px;
+  color: var(--color-depressed);
+}
