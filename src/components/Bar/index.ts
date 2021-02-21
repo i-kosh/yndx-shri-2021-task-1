@@ -17,28 +17,28 @@ export default class BarClass extends CommonComponent {
 
   constructor(cfg?: IConfig) {
     super();
-    if (cfg.accent) this.addClass("bar--accent");
-    if (cfg.underSlot) this.addClass("bar--shaped");
-    if (cfg.small) this.addClass("bar--small");
-    if (cfg.aboweSlotAlign === "left") this.addClass("bar--align-left");
-    if (cfg.aboweSlotAlign === "right") this.addClass("bar--align-right");
+    if (cfg?.accent) this.addClass("bar--accent");
+    if (cfg?.underSlot) this.addClass("bar--shaped");
+    if (cfg?.small) this.addClass("bar--small");
+    if (cfg?.aboweSlotAlign === "left") this.addClass("bar--align-left");
+    if (cfg?.aboweSlotAlign === "right") this.addClass("bar--align-right");
 
-    const barTop = cfg.topSlot
+    const barTop = cfg?.topSlot
       ? `<div class="bar__top headline">${cfg.topSlot}</div>`
       : "";
-    const barAbowe = cfg.aboweSlot
+    const barAbowe = cfg?.aboweSlot
       ? `<div class="bar__abowe subhead">${cfg.aboweSlot}</div>`
       : "";
-    const barBottom = cfg.bottomSlot
+    const barBottom = cfg?.bottomSlot
       ? `<div class="bar__bottom">${cfg.bottomSlot}</div>`
       : "";
-    const barUnder = cfg.underSlot
+    const barUnder = cfg?.underSlot
       ? `<div class="bar__under body">${cfg.underSlot}</div>`
       : "";
 
     this.template = `
     <div class="bar ${this.getClasses()}" style="--height: ${
-      cfg.height || 0
+      cfg?.height || 0
     }%;">
       ${barAbowe}
       <div class="bar__content">
