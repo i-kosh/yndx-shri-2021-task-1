@@ -1,6 +1,7 @@
 import "./scss/index.scss";
 import changeFavicon from "./favicons";
 import data, { availableAliases } from "./data";
+import Leaders from "./views/Leaders";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
   if (!availableAliases.includes(alias)) {
@@ -9,7 +10,9 @@ function renderTemplate(alias: string, data: Record<string, any>): string {
 
   console.dir(data);
 
-  return `<h1 class="headline">${alias}</h1>`;
+  return `
+  ${new Leaders(data)}
+  `;
 }
 
 declare global {
