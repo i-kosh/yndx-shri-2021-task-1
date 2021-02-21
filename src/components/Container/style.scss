@@ -1,0 +1,23 @@
+@import "../../scss/vars.scss";
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  padding: $container-padding-y $container-padding-x;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+
+  @media #{map-get($display-breakpoints, 'md-and-up')} {
+    max-width: map-get($container-max-widths, "md");
+  }
+
+  @media #{map-get($display-breakpoints, 'lg-and-up')} {
+    max-width: map-get($container-max-widths, "lg");
+  }
+
+  @media #{map-get($display-breakpoints, 'xl-only')} {
+    max-width: map-get($container-max-widths, "xl");
+  }
+}
