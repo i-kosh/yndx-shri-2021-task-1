@@ -6,7 +6,8 @@
     "target": "es6",
     "allowJs": false,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "strict": true
   },
   "files": [
     "src/index.ts"
