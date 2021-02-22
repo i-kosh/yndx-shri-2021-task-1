@@ -1,0 +1,50 @@
+@import "../../scss/vars.scss";
+
+.arrow-btn {
+  width: 64px;
+  height: 64px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+
+  svg {
+    fill: $white;
+  }
+
+  &:hover,
+  &:active,
+  &:disabled {
+    svg {
+      fill: $grey;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  .theme_light & {
+    svg {
+      fill: $yellow;
+    }
+
+    &:hover,
+    &:active,
+    &:disabled {
+      svg {
+        fill: $grey-light;
+      }
+    }
+  }
+}
+
+.arrow-btn--up {
+  transform: rotate(180deg);
+}
+.arrow-btn--left {
+  transform: rotate(90deg);
+}
+.arrow-btn--right {
+  transform: rotate(-90deg);
+}
