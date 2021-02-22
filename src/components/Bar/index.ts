@@ -38,7 +38,7 @@ export default class BarClass extends CommonComponent {
       ? `<div class="bar__under body">${this.cfg.underSlot}</div>`
       : "";
 
-    const styleHeightVar = `--height: ${this.cfg?.height || 100}%;`;
+    const styleHeightVar = `--height: ${this.cfg?.height ?? 100}%;`;
 
     return `
     <div class="bar ${this.getClasses()}" style="${styleHeightVar}">
