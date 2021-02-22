@@ -1,18 +1,31 @@
 import "./scss/index.scss";
 import changeFavicon from "./favicons";
-import data, { availableAliases } from "./data";
+import data from "./data";
 import Leaders from "./views/Leaders";
+import Vote from "./views/Vote";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
-  if (!availableAliases.includes(alias)) {
-    throw new Error("Неподдерживаемы шаблон");
+  console.log(data);
+
+  switch (alias) {
+    case "leaders":
+      return `${new Leaders(data)}`;
+
+    case "vote":
+      return `${new Vote(data)}`;
+
+    case "chart":
+      return `chart`;
+
+    case "diagram":
+      return `diagram`;
+
+    case "activity":
+      return `activity`;
+
+    default:
+      return `<h1 class="headline">Неподдерживаемый шаблон</h1>`;
   }
-
-  console.dir(data);
-
-  return `
-  ${new Leaders(data)}
-  `;
 }
 
 declare global {
