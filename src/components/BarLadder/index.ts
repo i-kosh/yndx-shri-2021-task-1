@@ -33,6 +33,7 @@ export default class BarLadderClass extends CommonComponent {
           name: selectedUserBar.userName,
           sub: selectedUserBar.userSub,
           mark: selectedUserBar.userMark,
+          nonInteractive: true,
         }).pushClasses(["ladder__selected-user"])}`
       : null;
     const selectedUserContent = `

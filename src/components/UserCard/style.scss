@@ -93,3 +93,7 @@
 .user__sub {
   color: var(--color-depressed);
 }
+
+.user--noninteractive {
+  pointer-events: none;
+}

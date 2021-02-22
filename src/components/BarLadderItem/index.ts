@@ -32,6 +32,7 @@ export default class BarLadderItemClass extends CommonComponent {
       name: this.cfg.name,
       sub: this.cfg.sub,
       mark: this.cfg.mark,
+      nonInteractive: true,
     });
     const bar = new Bar({
       topSlot: this.cfg.topSlot,
