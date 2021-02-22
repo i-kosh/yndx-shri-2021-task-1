@@ -61,18 +61,23 @@ const client = {
         },
       },
       {
-        test: /favicons.*\.(png|svg)$/i,
-        type: "asset/resource",
+        test: /\.(svg|jpg|png)$/i,
         generator: {
-          filename: "favicon[hash][ext]",
+          filename: "img/[hash][ext]",
         },
-      },
-      {
-        test: /avatars.*\.jpg$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "img/[name][ext]",
-        },
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            type: "asset/inline",
+          },
+          {
+            resourceQuery: /raw/,
+            type: "asset/source",
+          },
+          {
+            type: "asset/resource",
+          },
+        ],
       },
     ],
   },
