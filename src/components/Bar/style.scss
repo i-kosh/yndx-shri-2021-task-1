@@ -136,6 +136,7 @@ $align-padding: 20px;
 
 .bar--small {
   .bar__content {
+    min-width: 40px;
     width: 40px;
     @extend %bar-dark-small;
   }
