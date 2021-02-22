@@ -33,19 +33,7 @@
   }
 
   &:active {
-    background: radial-gradient(
-      91.67% 122.17% at 69.17% -11.17%,
-      #ffa300 0%,
-      #2d1c00 100%
-    );
-    box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.4),
-      inset 0px 6px 15px rgba(255, 162, 0, 0.4);
-
-    .theme_light & {
-      background: linear-gradient(180deg, #fff2d1 0.82%, #ffd66c 100%);
-      box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
-        inset 0px 0px 20px rgba(255, 176, 57, 0.8);
-    }
+    @extend %active;
   }
 }
 
@@ -96,4 +84,28 @@
 
 .user--noninteractive {
   pointer-events: none;
+}
+
+.user--active {
+  @extend %active;
+
+  &:hover {
+    @extend %active;
+  }
+}
+
+%active {
+  background: radial-gradient(
+    91.67% 122.17% at 69.17% -11.17%,
+    #ffa300 0%,
+    #2d1c00 100%
+  );
+  box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0px 6px 15px rgba(255, 162, 0, 0.4);
+
+  .theme_light & {
+    background: linear-gradient(180deg, #fff2d1 0.82%, #ffd66c 100%);
+    box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5),
+      inset 0px 0px 20px rgba(255, 176, 57, 0.8);
+  }
 }

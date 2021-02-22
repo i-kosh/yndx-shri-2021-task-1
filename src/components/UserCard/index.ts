@@ -8,6 +8,7 @@ interface Conf {
   sub?: string;
   mark?: string;
   nonInteractive?: boolean;
+  permanentActive?: boolean;
 }
 
 export default class UserCard extends CommonComponent {
@@ -17,6 +18,7 @@ export default class UserCard extends CommonComponent {
 
   render() {
     if (this.cfg.nonInteractive) this.addClass("user--noninteractive");
+    if (this.cfg.permanentActive) this.addClass("user--active");
 
     const markElem = this.cfg.mark
       ? `<div class="user__mark">${this.cfg.mark}</div>`
