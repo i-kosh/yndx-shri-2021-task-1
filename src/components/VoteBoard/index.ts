@@ -47,14 +47,26 @@ export default class BarLadderClass extends CommonComponent {
     <div class="vote ${this.getClasses()}">
       <div class="vote__content">
         ${users}
-        ${new ArrowButton({ direction: "up" }).pushClasses([
-          "vote__up",
-          "vote__btn",
-        ])}
-        ${new ArrowButton({ direction: "down" }).pushClasses([
-          "vote__down",
-          "vote__btn",
-        ])}
+        ${new ArrowButton({
+          direction: "up",
+          action: "update",
+          actionParams: {
+            alias: "vote",
+            data: {
+              offset: 0,
+            },
+          },
+        }).pushClasses(["vote__up", "vote__btn"])}
+        ${new ArrowButton({
+          direction: "down",
+          action: "update",
+          actionParams: {
+            alias: "vote",
+            data: {
+              offset: 6,
+            },
+          },
+        }).pushClasses(["vote__down", "vote__btn"])}
       </div>
     </div>
     `;

@@ -5,6 +5,11 @@ const buttonSvg = require("./Button.svg?raw") as string;
 interface IConfig {
   direction: "up" | "down" | "left" | "right";
   disabled?: boolean;
+  action?: "update";
+  actionParams?: {
+    alias: string;
+    data: Record<string, any>;
+  };
 }
 
 export default class BarClass extends CommonComponent {
@@ -25,8 +30,15 @@ export default class BarClass extends CommonComponent {
         break;
     }
 
+    let dataAction = "",
+      dataParams = "";
+    if (this.cfg?.action && this.cfg.actionParams) {
+      dataAction = `data-action="${this.cfg.action}"`;
+      dataParams = `data-params='${JSON.stringify(this.cfg.actionParams)}'`;
+    }
+
     return `
-    <button type="button" ${
+    <button type="button" ${dataAction} ${dataParams} ${
       this.cfg?.disabled ? "disabled" : ""
     } class="arrow-btn ${this.getClasses()}">
       ${buttonSvg}
