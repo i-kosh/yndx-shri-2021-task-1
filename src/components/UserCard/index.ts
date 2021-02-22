@@ -5,7 +5,7 @@ interface Conf {
   avatar: string;
   avatar2x?: string;
   name: string;
-  sub: string;
+  sub?: string;
   mark?: string;
 }
 
