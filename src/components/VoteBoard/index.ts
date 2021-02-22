@@ -7,6 +7,7 @@ interface ICfg {
   users: {
     name: string;
     avatar: string;
+    id: number;
   }[];
   selectedUserIndex?: number;
 }
@@ -30,6 +31,13 @@ export default class BarLadderClass extends CommonComponent {
             name: user.name,
             mark: isSelected ? "👍" : "",
             permanentActive: isSelected,
+            action: "update",
+            actionParams: {
+              alias: "leaders",
+              data: {
+                selectedUserId: user.id,
+              },
+            },
           })}
         </div>`
       );
