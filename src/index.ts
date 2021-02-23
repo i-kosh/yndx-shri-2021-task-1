@@ -3,6 +3,7 @@ import changeFavicon from "./favicons";
 import data from "./data";
 import Leaders from "./views/Leaders";
 import Vote from "./views/Vote";
+import Chart from "./views/ChartView";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
   console.log(data);
@@ -15,7 +16,7 @@ function renderTemplate(alias: string, data: Record<string, any>): string {
       return `${new Vote(data)}`;
 
     case "chart":
-      return `chart`;
+      return `${new Chart(data)}`;
 
     case "diagram":
       return `diagram`;
