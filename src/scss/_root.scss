@@ -49,4 +49,16 @@
       border-color: $black;
     }
   }
+
+  &--vertical {
+    border-top: none;
+    border-left: 2px solid $grey;
+  }
+
+  &--vertical-only-landscape {
+    @media (orientation: landscape) {
+      border-top: none;
+      border-left: 2px solid $grey;
+    }
+  }
 }
