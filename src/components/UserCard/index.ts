@@ -14,6 +14,7 @@ interface Conf {
     alias: string;
     data: Record<string, any>;
   };
+  horizontal?: boolean;
 }
 
 export default class UserCard extends CommonComponent {
@@ -24,6 +25,7 @@ export default class UserCard extends CommonComponent {
   render() {
     if (this.cfg.nonInteractive) this.addClass("user--noninteractive");
     if (this.cfg.permanentActive) this.addClass("user--active");
+    if (this.cfg.horizontal) this.addClass("user--horizontal");
 
     const markElem = this.cfg.mark
       ? `<div class="user__mark">${this.cfg.mark}</div>`
