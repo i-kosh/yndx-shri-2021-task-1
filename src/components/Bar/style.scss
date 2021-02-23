@@ -59,7 +59,7 @@
 $align-padding: 20px;
 
 .bar {
-  height: var(--height);
+  height: 100%;
   width: 100%;
   display: inline-flex;
   flex-direction: column;
@@ -70,15 +70,20 @@ $align-padding: 20px;
 .bar__content {
   @extend %bar-dark;
 
-  flex: 1 1 auto;
+  flex-shrink: 0;
+  position: relative;
+  height: var(--height);
   min-height: 8px;
   min-width: 120px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: hidden;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
+
+  &:first-child {
+    margin-top: auto;
+  }
 
   .theme_light & {
     @extend %bar-light;
@@ -86,6 +91,10 @@ $align-padding: 20px;
 }
 
 .bar__abowe {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,12 +104,15 @@ $align-padding: 20px;
 }
 
 .bar__under {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translate(-50%, 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   color: var(--color-depressed);
-  margin-top: 12px;
 }
 
 .bar__top {
@@ -132,6 +144,14 @@ $align-padding: 20px;
       @extend %bar-light-accent;
     }
   }
+}
+
+.bar--abowe {
+  padding-top: 30px;
+}
+
+.bar--under {
+  padding-bottom: 30px;
 }
 
 .bar--small {

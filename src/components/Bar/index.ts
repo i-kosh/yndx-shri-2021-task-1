@@ -24,6 +24,8 @@ export default class BarClass extends CommonComponent {
     if (this.cfg?.small) this.addClass("bar--small");
     if (this.cfg?.aboweSlotAlign === "left") this.addClass("bar--align-left");
     if (this.cfg?.aboweSlotAlign === "right") this.addClass("bar--align-right");
+    if (this.cfg?.aboweSlot) this.addClass("bar--abowe");
+    if (this.cfg?.underSlot) this.addClass("bar--under");
 
     const barTop = this.cfg?.topSlot
       ? `<div class="bar__top headline">${this.cfg.topSlot}</div>`
@@ -42,12 +44,12 @@ export default class BarClass extends CommonComponent {
 
     return `
     <div class="bar ${this.getClasses()}" style="${styleHeightVar}">
-      ${barAbowe}
       <div class="bar__content">
-        ${barTop}
-        ${barBottom}
+          ${barAbowe}
+          ${barTop}
+          ${barBottom}
+          ${barUnder}
       </div>
-      ${barUnder}
     </div>
     `;
   }

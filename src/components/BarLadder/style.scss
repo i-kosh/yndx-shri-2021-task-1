@@ -1,4 +1,6 @@
-$margin-inset: 10px;
+@import "../../scss/vars.scss";
+
+$margin-inset: 8px;
 
 .ladder {
   display: flex;
@@ -6,12 +8,16 @@ $margin-inset: 10px;
   position: relative;
   align-items: flex-end;
   justify-content: center;
-  max-height: 77%;
+  max-height: 56.5%;
   margin-top: auto;
   padding: 0 $margin-inset;
 
   @media (orientation: landscape) {
-    max-height: 80%;
+    max-height: 41%;
+  }
+
+  @media #{map-get($display-breakpoints, 'md-and-up')} {
+    max-height: 60%;
   }
 }
 
@@ -20,7 +26,7 @@ $margin-inset: 10px;
   margin-right: -$margin-inset;
   display: none;
 
-  $height-diff: 10%;
+  $height-diff: 14%;
 
   // Места
   // 1-ое
@@ -41,8 +47,6 @@ $margin-inset: 10px;
   }
 
   @media (orientation: landscape) {
-    $height-diff: 8%;
-
     // Места
     // 1-ое
     &:nth-last-child(1) {
