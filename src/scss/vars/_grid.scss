@@ -6,12 +6,8 @@ $grid-breakpoints: (
   "xl": 1920px - 16px,
 );
 
-$grid-gutter: 48px;
-
-$container-padding-x: $grid-gutter / 2;
-$container-padding-y: 20px;
-
-$grid-columns: 12;
+$container-padding-x: 24px;
+$container-padding-y: 24px;
 
 $container-max-widths: (
   "md": map-get($grid-breakpoints, "md") * 0.9375,
