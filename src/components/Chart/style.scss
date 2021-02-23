@@ -1,0 +1,11 @@
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.chart__bar {
+  &:not(:last-child) {
+    margin-right: 24px;
+  }
+}
