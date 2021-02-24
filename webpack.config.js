@@ -62,9 +62,6 @@ const client = {
       },
       {
         test: /\.(svg|jpg|png)$/i,
-        generator: {
-          filename: "img/[hash][ext]",
-        },
         oneOf: [
           {
             resourceQuery: /inline/,
@@ -76,6 +73,9 @@ const client = {
           },
           {
             type: "asset/resource",
+            generator: {
+              filename: "img/[hash][ext]",
+            },
           },
         ],
       },
