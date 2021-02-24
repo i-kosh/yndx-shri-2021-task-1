@@ -1,0 +1,58 @@
+@import "../../scss/vars.scss";
+
+.activity-view__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (orientation: landscape) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.activity-view__legend {
+  @media (orientation: landscape) {
+    flex-grow: 1;
+  }
+}
+
+.portrait--only,
+.landscape--only {
+  display: none;
+}
+
+.portrait--only {
+  @media (orientation: portrait) {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media #{map-get($display-breakpoints, 'sm-and-up')} {
+      & > * {
+        max-width: 600px;
+        margin-top: -55px;
+      }
+    }
+  }
+}
+
+.landscape--only {
+  width: 100%;
+  max-width: 75%;
+  flex-grow: 1;
+  padding: 18px;
+  padding-bottom: 0;
+
+  @media (orientation: landscape) {
+    display: block;
+
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

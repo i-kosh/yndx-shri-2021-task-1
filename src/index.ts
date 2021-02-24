@@ -4,6 +4,7 @@ import data from "./data";
 import Leaders from "./views/Leaders";
 import Vote from "./views/Vote";
 import Chart from "./views/ChartView";
+import Activity from "./views/Activity";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
   console.log(data);
@@ -22,7 +23,7 @@ function renderTemplate(alias: string, data: Record<string, any>): string {
       return `diagram`;
 
     case "activity":
-      return `activity`;
+      return `${new Activity(data)}`;
 
     default:
       return `<h1 class="headline">Неподдерживаемый шаблон</h1>`;
