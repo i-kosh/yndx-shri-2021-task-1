@@ -1,0 +1,25 @@
+.mesh {
+  // --inrow: 7; -- кол-во элементов в строке
+  $magic: 1.7; // высчитывается методом тыка
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: calc(100% / var(--inrow) * #{$magic});
+  padding-right: calc(100% / var(--inrow) / 2);
+}
+
+.mesh__row {
+  position: relative;
+  display: flex;
+
+  &:nth-child(2n) {
+    & > * {
+      transform: translateX(50%);
+    }
+  }
+
+  & > * {
+    flex-grow: 1;
+  }
+}
