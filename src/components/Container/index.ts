@@ -12,7 +12,7 @@ export default class ContainerClass extends CommonComponent {
     const tag = this.tagName || this.defaultTag;
 
     return `
-    <${tag} class="container">
+    <${tag} class="container ${this.getClasses()}">
       ${this.slot || ""}
     </${tag}>
     `;
