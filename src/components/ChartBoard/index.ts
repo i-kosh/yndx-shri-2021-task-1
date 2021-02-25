@@ -2,7 +2,6 @@ import "./style.scss";
 import CommonComponent from "../CommonComponent";
 import Chart from "../Chart";
 import UserCard from "../../components/UserCard";
-import getAvatar from "../../avatars";
 
 interface ICfg {
   values?: {
@@ -29,7 +28,7 @@ export default class ChartBoardClass extends CommonComponent {
         if (index + 1 > MAX_USERS) return accum;
 
         const userCard = new UserCard({
-          avatar: getAvatar(user.avatar),
+          avatar: user.avatar,
           name: user.name,
           sub: user.valueText,
           nonInteractive: true,

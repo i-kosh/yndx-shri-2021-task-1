@@ -3,7 +3,6 @@ import Common from "../CommonView";
 import Container from "../../components/Container";
 import MainHeading from "../../components/MainHeading";
 import BarLadder from "../../components/BarLadder";
-import getAvatar from "../../avatars";
 
 interface LeadersSlide {
   emoji: string;
@@ -41,7 +40,7 @@ export default class Leaders extends Common {
               : "";
 
           return {
-            userAvatar: getAvatar(user.avatar),
+            userAvatar: user.avatar,
             userName: user.name,
             userSub: user.valueText,
             place: userPlace,

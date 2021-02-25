@@ -1,9 +1,9 @@
 import "./style.scss";
 import CommonComponent from "../CommonComponent";
+import getAvatar from "../../avatars";
 
 interface Conf {
   avatar: string;
-  avatar2x?: string;
   name: string;
   sub?: string;
   mark?: string;
@@ -43,8 +43,8 @@ export default class UserCard extends CommonComponent {
       <div class="user__avatar">
         ${markElem}
         <img class="user__img"
-          src="${this.cfg.avatar}"
-          ${this.cfg.avatar2x ? `srcset="${this.cfg.avatar2x}"` : ""}
+          src="${getAvatar(this.cfg.avatar)}"
+          srcset="${getAvatar(this.cfg.avatar, true)} 2x"
           alt="${this.cfg.name}">
       </div>
       <p class="user__text">
