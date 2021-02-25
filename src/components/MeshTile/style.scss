@@ -28,14 +28,14 @@
 @each $size in 0 1 2 3 {
   .mesh-tile--size-#{$size} {
     &::after {
-      background-image: url("./assets/dark-#{$size}.svg");
+      background-image: url("./assets/dark-#{$size}.png");
     }
   }
 
   .theme_light {
     .mesh-tile--size-#{$size} {
       &::after {
-        background-image: url("./assets/light-#{$size}.svg");
+        background-image: url("./assets/light-#{$size}.png");
       }
     }
   }
