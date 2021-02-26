@@ -3,7 +3,7 @@
   --color-subhead: #{$white};
   --color-body: #{$white};
   --color-caption: #{$white};
-  --color-depressed: #{$grey-light};
+  --color-depressed: #{$grey};
 
   --background: radial-gradient(
     70.24% 70.24% at 49.87% 29.76%,
@@ -17,7 +17,7 @@
   --color-subhead: #{$black};
   --color-body: #{$black};
   --color-caption: #{$black};
-  --color-depressed: #{$grey};
+  --color-depressed: #{$grey-light};
 
   --background: #fff;
 }
