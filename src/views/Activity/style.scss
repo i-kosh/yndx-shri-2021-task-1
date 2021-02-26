@@ -54,5 +54,9 @@
       justify-content: center;
       align-items: center;
     }
+
+    @media #{map-get($display-breakpoints, 'lg-and-up')} {
+      max-width: 50%;
+    }
   }
 }
