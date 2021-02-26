@@ -5,10 +5,9 @@ import Leaders from "./views/Leaders";
 import Vote from "./views/Vote";
 import Chart from "./views/ChartView";
 import Activity from "./views/Activity";
+import DiagramView from "./views/DiagramView";
 
 function renderTemplate(alias: string, data: Record<string, any>): string {
-  console.log(data);
-
   switch (alias) {
     case "leaders":
       return `${new Leaders(data)}`;
@@ -20,7 +19,7 @@ function renderTemplate(alias: string, data: Record<string, any>): string {
       return `${new Chart(data)}`;
 
     case "diagram":
-      return `diagram`;
+      return `${new DiagramView(data)}`;
 
     case "activity":
       return `${new Activity(data)}`;
