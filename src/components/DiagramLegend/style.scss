@@ -1,0 +1,30 @@
+.diagram-legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.diagram-legend__item + .divider {
+  margin: 16px 0;
+}
+
+.dlitem__bullet {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border-radius: 50%;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.dlitem__summary {
+  color: var(--color-depressed);
+  margin-left: auto;
+}
+
+.dlitem {
+  display: flex;
+}
+
+.dlitem__diff {
+  margin-right: 14px;
+}
