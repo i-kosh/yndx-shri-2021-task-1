@@ -14,6 +14,7 @@ interface VoteSlide {
     avatar: string;
     valueText: string;
   }[];
+  offset?: number;
 }
 
 export default class Vote extends Common {
@@ -43,6 +44,7 @@ export default class Vote extends Common {
             selectedUserIndex: this.data.users?.findIndex(
               (user) => user.id === this.data.selectedUserId
             ),
+            startUserIndex: this.data.offset,
           })}
         `,
         "main"

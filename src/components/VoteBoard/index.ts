@@ -2,6 +2,7 @@ import "./style.scss";
 import CommonComponent from "../CommonComponent";
 import UserCard from "../UserCard";
 import ArrowButton from "../ArrowButton";
+import { clamp } from "lodash-es";
 
 interface ICfg {
   users: {
@@ -10,6 +11,7 @@ interface ICfg {
     id: number;
   }[];
   selectedUserIndex?: number;
+  startUserIndex?: number;
 }
 
 export default class BarLadderClass extends CommonComponent {
@@ -18,8 +20,27 @@ export default class BarLadderClass extends CommonComponent {
   }
 
   render() {
+    const MAX_DISPALY_USERS_LANDSCAPE = 6;
+    const MAX_DISPALY_USERS_PORTRAIT = 8;
+    const maxUsers = matchMedia("(orientation: landscape)").matches
+      ? MAX_DISPALY_USERS_LANDSCAPE
+      : MAX_DISPALY_USERS_PORTRAIT;
+
+    const usersCount = this.cfg.users.length;
+    const lastUserIndex = usersCount - 1;
+    const offset = clamp(
+      this.cfg.startUserIndex || 0,
+      0,
+      clamp(lastUserIndex, 0, lastUserIndex)
+    );
+
+    const itHasPrevUsers = offset > 0;
+    const itHasNextUsers = offset + maxUsers - 1 < lastUserIndex;
+
     const users = this.cfg.users.reduce((accum, user, index) => {
-      if (index > 7) return accum;
+      if (index < offset) {
+        return accum;
+      }
 
       const isSelected = index === this.cfg.selectedUserIndex;
 
@@ -56,6 +77,7 @@ export default class BarLadderClass extends CommonComponent {
               offset: 0,
             },
           },
+          disabled: !itHasPrevUsers,
         }).pushClasses(["vote__up", "vote__btn"])}
         ${new ArrowButton({
           direction: "down",
@@ -63,9 +85,10 @@ export default class BarLadderClass extends CommonComponent {
           actionParams: {
             alias: "vote",
             data: {
-              offset: 6,
+              offset: maxUsers,
             },
           },
+          disabled: !itHasNextUsers,
         }).pushClasses(["vote__down", "vote__btn"])}
       </div>
     </div>
