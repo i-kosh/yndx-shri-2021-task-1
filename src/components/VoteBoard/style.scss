@@ -16,6 +16,7 @@
 .vote__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-auto-flow: dense;
   column-gap: 8px;
   row-gap: 16px;
